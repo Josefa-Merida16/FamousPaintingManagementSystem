@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FamousPaintingManagementModels", "FamousPaintingManagementModels.csproj", "{90FA9FF5-31CA-4DF7-9A2B-86998FDA1772}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FamousPaintingManagementServices", "..\FamousPaintingManagementServices\FamousPaintingManagementServices.csproj", "{B4C6B977-D592-40AE-9545-1456924D506A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Buyer", "..\Buyer\Buyer.csproj", "{9E1F701E-D3C3-4BAE-85FB-6A77D37014D4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FamousPaintingManagementData", "..\PaintingManagementSystem\FamousPaintingManagementData.csproj", "{89020C22-E657-4F81-A493-CEE3556CD6AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamousPaintingManagementAPI", "..\FamousPaintingManagementAPI\FamousPaintingManagementAPI.csproj", "{1C540FC6-AB56-4026-B954-3E4E30999386}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90FA9FF5-31CA-4DF7-9A2B-86998FDA1772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90FA9FF5-31CA-4DF7-9A2B-86998FDA1772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90FA9FF5-31CA-4DF7-9A2B-86998FDA1772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90FA9FF5-31CA-4DF7-9A2B-86998FDA1772}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4C6B977-D592-40AE-9545-1456924D506A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4C6B977-D592-40AE-9545-1456924D506A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4C6B977-D592-40AE-9545-1456924D506A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4C6B977-D592-40AE-9545-1456924D506A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E1F701E-D3C3-4BAE-85FB-6A77D37014D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E1F701E-D3C3-4BAE-85FB-6A77D37014D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E1F701E-D3C3-4BAE-85FB-6A77D37014D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E1F701E-D3C3-4BAE-85FB-6A77D37014D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89020C22-E657-4F81-A493-CEE3556CD6AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89020C22-E657-4F81-A493-CEE3556CD6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89020C22-E657-4F81-A493-CEE3556CD6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89020C22-E657-4F81-A493-CEE3556CD6AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C540FC6-AB56-4026-B954-3E4E30999386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C540FC6-AB56-4026-B954-3E4E30999386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C540FC6-AB56-4026-B954-3E4E30999386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C540FC6-AB56-4026-B954-3E4E30999386}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18C4A9D0-DB65-4FEE-B7DD-8BCC661C7FEF}
+	EndGlobalSection
+EndGlobal
