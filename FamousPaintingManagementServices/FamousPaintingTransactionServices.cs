@@ -13,15 +13,16 @@ namespace FamousPaintingManagementServices
         private FamousPaintingValidationServices _validationServices = new FamousPaintingValidationServices();
         private FamousPaintingDataRepository _dataRepository = new FamousPaintingDataRepository();
 
-        public bool FamousPainting(FamousPainting painting)
+        public bool AddFamousPainting(FamousPainting painting)
         {
             bool result = _validationServices.CheckIfFamousPaintingTitleExists(painting.Title);
-            if (!result)
+            if (result)
             {
                 result = _dataRepository.AddFamousPainting(painting) > 0;
             }
             return result;
         }
+
 
         public bool UpdateFamousPainting(FamousPainting painting)
         {

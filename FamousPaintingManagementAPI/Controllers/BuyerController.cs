@@ -39,8 +39,13 @@ namespace FamousPaintingManagementAPI.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddPainting(FamousPaintingManagementAPI.FamousPainting request)
+        public IActionResult AddPainting([FromBody] FamousPainting request)
         {
+            if (request == null)
+            {
+                return BadRequest("Invalid data received.");
+            }
+
             var painting = new FamousPaintingManagementModels.FamousPainting
             {
                 Title = request.Title,
@@ -49,8 +54,16 @@ namespace FamousPaintingManagementAPI.Controllers
                 Status = request.Status
             };
 
-            var result = _transactionServices.FamousPainting(painting);
-            return new JsonResult(result);
+            var result = _transactionServices.AddFamousPainting(painting);
+
+            if (result)
+            {
+                return Ok();
+            }
+            else
+            {
+                return StatusCode(500, "Failed to add painting.");
+            }
         }
 
         [HttpPatch]
