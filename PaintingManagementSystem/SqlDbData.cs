@@ -8,12 +8,13 @@ namespace FamousPaintingManagementData
 {
     public class SqlDbData
     {
-        string connectionString = "Data Source = LAPTOP-K066AQOL\\SQLEXPRESS ; Initial Catalog = FamousPaintingManagementSystem ; Integrated Security = True;";
+        // string connectionString = "Data Source = LAPTOP-K066AQOL\\SQLEXPRESS ; Initial Catalog = FamousPaintingManagementSystem ; Integrated Security = True;";
+        string connection = "Server = tcp:20.198.177.117,1433;Database=FamousPaintingManagementSystem; User Id=sa; Password=Mjv_Merida0816;";
         SqlConnection sqlConnection;
 
         public SqlDbData()
         {
-            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection = new SqlConnection(connection);
         }
 
         public List<FamousPainting> GetFamousPaintings()
