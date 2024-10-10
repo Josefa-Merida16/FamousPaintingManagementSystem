@@ -11,11 +11,13 @@ namespace FamousPaintingManagementAPI.Controllers
     {
         private FamousPaintingGetServices _getServices;
         private FamousPaintingTransactionServices _transactionServices;
+        private FamousPaintingEmail _emailService;
 
         public BuyerController()
         {
             _getServices = new FamousPaintingGetServices();
             _transactionServices = new FamousPaintingTransactionServices();
+            _emailService = new FamousPaintingEmail();
         }
 
         [HttpGet]
@@ -58,6 +60,7 @@ namespace FamousPaintingManagementAPI.Controllers
 
             if (result)
             {
+                _emailService.SendPaintingAddedEmail(painting.Title);
                 return Ok();
             }
             else
@@ -67,7 +70,7 @@ namespace FamousPaintingManagementAPI.Controllers
         }
 
         [HttpPatch]
-        public JsonResult UpdatePainting(FamousPaintingManagementAPI.FamousPainting request)
+        public JsonResult UpdatePainting([FromBody] FamousPainting request)
         {
             var painting = new FamousPaintingManagementModels.FamousPainting
             {
@@ -78,11 +81,17 @@ namespace FamousPaintingManagementAPI.Controllers
             };
 
             var result = _transactionServices.UpdateFamousPainting(painting);
+
+            if (result)
+            {
+                _emailService.SendPaintingUpdatedEmail(painting.Title);
+            }
+
             return new JsonResult(result);
         }
 
         [HttpDelete]
-        public JsonResult DeletePainting(FamousPaintingManagementAPI.FamousPainting request)
+        public JsonResult DeletePainting([FromBody] FamousPainting request)
         {
             var painting = new FamousPaintingManagementModels.FamousPainting
             {
@@ -93,7 +102,15 @@ namespace FamousPaintingManagementAPI.Controllers
             };
 
             var result = _transactionServices.DeleteFamousPainting(painting);
+
+            if (result)
+            {
+                _emailService.SendPaintingDeletedEmail(painting.Title);
+            }
+
             return new JsonResult(result);
         }
     }
 }
+
+

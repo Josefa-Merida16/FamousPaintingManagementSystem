@@ -2,6 +2,8 @@
 using FamousPaintingManagementModels;
 using System;
 using System.Collections.Generic;
+using MimeKit;
+using MailKit.Net.Smtp;
 
 namespace Buyer
 {
@@ -11,16 +13,18 @@ namespace Buyer
         {
             FamousPaintingGetServices getServices = new FamousPaintingGetServices();
 
-            var paintings = getServices.GetFamousPaintingsByStatus(1);
+             var paintings = getServices.GetFamousPaintingsByStatus(1);
 
-            foreach (var painting in paintings)
-            {
-                Console.WriteLine($"Title: {painting.Title}");
-                Console.WriteLine($"Artist: {painting.Artist}");
-                Console.WriteLine($"Year Created: {painting.YearCreated}");
-                Console.WriteLine($"Status: {painting.Status}");
-                Console.WriteLine();
-            }
+             foreach (var painting in paintings)
+             {
+                 Console.WriteLine($"Title: {painting.Title}");
+                 Console.WriteLine($"Artist: {painting.Artist}");
+                 Console.WriteLine($"Year Created: {painting.YearCreated}");
+                 Console.WriteLine($"Status: {painting.Status}");
+                 Console.WriteLine();
+             }
+
+           
         }
     }
 }

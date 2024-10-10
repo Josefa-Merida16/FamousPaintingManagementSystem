@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FamousPaintingManagementModels\FamousPaintingManagementModels.csproj" />
     <ProjectReference Include="..\PaintingManagementSystem\FamousPaintingManagementData.csproj" />
   </ItemGroup>
