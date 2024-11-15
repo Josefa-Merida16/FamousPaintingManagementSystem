@@ -34,6 +34,7 @@ namespace FamousPaintingManagementServices
             return result;
         }
 
+
         public bool DeleteFamousPainting(FamousPainting painting)
         {
             bool result = _validationServices.CheckIfFamousPaintingTitleExists(painting.Title);

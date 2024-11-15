@@ -1,4 +1,6 @@
 
+using Amazon.S3;
+
 namespace FamousPaintingManagementAPI
 {
     public class Program
@@ -13,6 +15,8 @@ namespace FamousPaintingManagementAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDefaultAWSOptions(builder.Configuration.GetAWSOptions());
+            builder.Services.AddAWSService<IAmazonS3>();
 
             var app = builder.Build();
 

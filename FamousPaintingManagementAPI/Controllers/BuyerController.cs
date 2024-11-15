@@ -20,7 +20,7 @@ namespace FamousPaintingManagementAPI.Controllers
             _emailService = new FamousPaintingEmail();
         }
 
-        [HttpGet]
+        [HttpGet("View")]
         public IEnumerable<FamousPaintingManagementAPI.FamousPainting> GetPaintings()
         {
             var activePaintings = _getServices.GetFamousPaintingsByStatus(1);
@@ -40,7 +40,7 @@ namespace FamousPaintingManagementAPI.Controllers
             return paintings;
         }
 
-        [HttpPost]
+        [HttpPost("Create")]
         public IActionResult AddPainting([FromBody] FamousPainting request)
         {
             if (request == null)
@@ -69,9 +69,14 @@ namespace FamousPaintingManagementAPI.Controllers
             }
         }
 
-        [HttpPatch]
-        public JsonResult UpdatePainting([FromBody] FamousPainting request)
+        [HttpPatch("Update")]
+        public IActionResult UpdatePainting([FromBody] FamousPainting request)
         {
+            if (request == null)
+            {
+                return BadRequest("Invalid data received.");
+            }
+
             var painting = new FamousPaintingManagementModels.FamousPainting
             {
                 Title = request.Title,
@@ -85,12 +90,15 @@ namespace FamousPaintingManagementAPI.Controllers
             if (result)
             {
                 _emailService.SendPaintingUpdatedEmail(painting.Title);
+                return Ok();
             }
-
-            return new JsonResult(result);
+            else
+            {
+                return StatusCode(500, "Failed to update painting.");
+            }
         }
 
-        [HttpDelete]
+        [HttpDelete("Delete")]
         public JsonResult DeletePainting([FromBody] FamousPainting request)
         {
             var painting = new FamousPaintingManagementModels.FamousPainting
@@ -106,10 +114,12 @@ namespace FamousPaintingManagementAPI.Controllers
             if (result)
             {
                 _emailService.SendPaintingDeletedEmail(painting.Title);
+                return new JsonResult(new { success = true });
             }
 
-            return new JsonResult(result);
+            return new JsonResult(new { success = false, message = "Failed to delete painting." });
         }
+
     }
 }
 
